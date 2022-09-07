@@ -1,10 +1,6 @@
 {
   "name": "vue-project",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/NikitaKiryaev-web/todo-app-vue-vuex"
-  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

@@ -1,6 +1,6 @@
 <template>
   <div class="todo">
-    <h1 class="todo__title">Todo Vue App</h1>
+    <h1 class="todo__title">Todo Vue App!</h1>
     <form @submit="onSubmitHandle" class="todo__form">
       <input
         :value="store.state.todoInput"
