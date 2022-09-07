@@ -49,4 +49,25 @@ describe("TodoForm", () => {
     expect(todoActions.deleteTodo).toHaveBeenCalled();
     expect(wrapper.find("li").exists()).toBeFalsy;
   });
+
+  it("toggling todo on todo title click", async () => {
+    const wrapper = mount(TodoItemVue, {
+      props: {
+        todo: {
+          id: 1,
+          title: "Test",
+          completed: false,
+        },
+      },
+      global: {
+        plugins: [[store, key]],
+      },
+    });
+    const todoElem = wrapper.find("li");
+    await todoElem.trigger("click");
+    expect(todoActions.toggleTodo).toHaveBeenCalled();
+    expect(wrapper.find("li").element.style).toContain(
+      "text-decoration: line-through"
+    );
+  });
 });
