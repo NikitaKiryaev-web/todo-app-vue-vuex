@@ -1,0 +1,32 @@
+@import "../../assets/mixins.scss";
+
+.todo__list-item {
+  max-width: 300px;
+  &-wrapper {
+    width: 430px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &-delete {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: #3f72af;
+    margin: 0 0 0 30px;
+    color: #fff;
+    @include btn-effects();
+  }
+  color: #112d4e;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  @include btn-effects();
+  &_done {
+    text-decoration: line-through;
+  }
+}

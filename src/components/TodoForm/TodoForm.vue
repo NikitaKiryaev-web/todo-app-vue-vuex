@@ -1,0 +1,47 @@
+<template>
+  <div class="todo">
+    <h1 class="todo__title">Todo Vue App</h1>
+    <form @submit="onSubmitHandle" class="todo__form">
+      <input
+        :value="store.state.todoInput"
+        @input="onChangeHandle"
+        type="text"
+        class="todo__input"
+        required
+        placeholder="Добавьте свои дела"
+      />
+      <button class="todo__submit" type="submit"></button>
+      <button @click="fetchTodo" class="todo__api-btn" type="button">
+        Api
+      </button>
+    </form>
+    <ul class="todo__list">
+      <TodoItem v-for="todo in store.state.todos" :key="todo.id" :todo="todo" />
+    </ul>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useStore } from "@/store";
+import TodoItem from "../TodoItem.vue/TodoItem.vue";
+const store = useStore();
+
+function onChangeHandle(e: Event) {
+  store.dispatch("setTodoInput", (e.target as HTMLInputElement).value);
+}
+function onSubmitHandle(e: Event) {
+  e.preventDefault();
+  store.dispatch("addTodo", {
+    id: Date.now() + Math.random(),
+    title: store.state.todoInput,
+    done: false,
+  });
+}
+async function fetchTodo() {
+  store.dispatch("fetchTodo");
+}
+</script>
+
+<style lang="scss" scoped>
+@import "./TodoForm.scss";
+</style>

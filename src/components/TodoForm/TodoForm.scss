@@ -1,0 +1,75 @@
+@import "../../assets/mixins.scss";
+.todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  padding: 20px 50px;
+  background-color: #f9f7f7;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  &__title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    line-height: 28px;
+    color: #112d4e;
+    font-weight: 700;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+  &__input {
+    width: 250px;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid rgba(177, 177, 177, 0.4);
+    background-color: #dbe2ef;
+    margin-right: 10px;
+    padding: 10px;
+  }
+  &__submit {
+    width: 45px;
+    height: 32px;
+    border: none;
+    border-radius: 5px;
+    background-image: url(../../assets/images/plus.svg);
+    background-size: contain;
+    background-position: center;
+    background-color: #3f72af;
+    padding: 0;
+    margin-right: 20px;
+    @include btn-effects();
+  }
+  &__api-btn {
+    border: none;
+    width: 45px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #3f72af;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    @include btn-effects();
+  }
+  &__list {
+    list-style-type: none;
+    padding: 0;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 20px;
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #dbe2ef;
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #3f72af;
+      border-radius: 20px;
+    }
+  }
+}
