@@ -1,6 +1,11 @@
 {
   "name": "vue-project",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": "https://nikitakiryaev-web.github.io/todo-app-vue-vuex/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NikitaKiryaev-web/todo-app-vue-vuex"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -9,7 +14,7 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "predeploy": "run-p type-check build-only",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.2.38",
