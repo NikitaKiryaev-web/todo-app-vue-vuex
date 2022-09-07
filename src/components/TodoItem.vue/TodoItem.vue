@@ -25,10 +25,10 @@ const props = defineProps<Props>();
 const store = useStore();
 
 function handleCheck() {
-  store.dispatch("toggleTodo", { id: props.todo.id });
+  store.dispatch("todo/toggleTodo", { id: props.todo.id });
 }
 function handleDelete() {
-  store.dispatch("deleteTodo", { id: props.todo.id });
+  store.dispatch("todo/deleteTodo", { id: props.todo.id });
 }
 </script>
 

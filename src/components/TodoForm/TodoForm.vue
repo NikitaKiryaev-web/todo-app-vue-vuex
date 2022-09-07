@@ -3,7 +3,7 @@
     <h1 class="todo__title">Todo Vue App</h1>
     <form @submit="onSubmitHandle" class="todo__form">
       <input
-        :value="store.state.todoInput"
+        :value="store.state.input.todoInput"
         @input="onChangeHandle"
         type="text"
         class="todo__input"
@@ -16,7 +16,11 @@
       </button>
     </form>
     <ul class="todo__list">
-      <TodoItem v-for="todo in store.state.todos" :key="todo.id" :todo="todo" />
+      <TodoItem
+        v-for="todo in store.state.todo.todos"
+        :key="todo.id"
+        :todo="todo"
+      />
     </ul>
   </div>
 </template>
@@ -27,18 +31,18 @@ import TodoItem from "../TodoItem.vue/TodoItem.vue";
 const store = useStore();
 
 function onChangeHandle(e: Event) {
-  store.dispatch("setTodoInput", (e.target as HTMLInputElement).value);
+  store.dispatch("input/setTodoInput", (e.target as HTMLInputElement).value);
 }
 function onSubmitHandle(e: Event) {
   e.preventDefault();
-  store.dispatch("addTodo", {
+  store.dispatch("todo/addTodo", {
     id: Date.now() + Math.random(),
-    title: store.state.todoInput,
+    title: store.state.input.todoInput,
     done: false,
   });
 }
 async function fetchTodo() {
-  store.dispatch("fetchTodo");
+  store.dispatch("todo/fetchTodo");
 }
 </script>
 
